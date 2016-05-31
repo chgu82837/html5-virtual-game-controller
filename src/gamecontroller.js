@@ -921,8 +921,8 @@
 		 */
 		TouchableButton.prototype.check = function( touchX, touchY ) {
 			var radius = this.radius + GameController.options.touchRadius / 2;
-			return Math.abs(touchX - this.x - this.radius) < radius &&
-				Math.abs(touchY - this.y - this.radius) < radius;
+			return Math.pow(touchX - this.x - this.radius, 2) +
+				Math.pow(touchY - this.y - this.radius, 2) < radius * radius;
 		};
 
 		TouchableButton.prototype.draw = function() {
